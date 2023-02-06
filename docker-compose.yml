@@ -1,0 +1,16 @@
+version: "3.8"
+name: learning-flutter
+services:
+  app:
+    image: app
+    build:
+      context: ./app
+    volumes:
+      - ./app:/home/developer/app # Drop all our code from ./app into container's home/developer/app directory 
+      -  /tmp/.X11-unix:/tmp/.X11-unix # Needed to display GUI from container's device emulator to host machine
+    devices:
+      - /dev/dri:/dev/dri # Graphics
+      - /dev/kvm # CPU acceleration
+    environment:
+      - DISPLAY=:0 # share the Host’s DISPLAY environment variable to the container
+    working_dir: /home/developer/app

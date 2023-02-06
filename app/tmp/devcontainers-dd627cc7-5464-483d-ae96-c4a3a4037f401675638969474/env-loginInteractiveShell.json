@@ -1,0 +1,16 @@
+{
+	"LS_COLORS": "",
+	"LESSCLOSE": "/usr/bin/lesspipe %s %s",
+	"ANDROID_HOME": "/home/developer/Android",
+	"DISPLAY": "1",
+	"HOSTNAME": "a18a2ed2ccbc",
+	"REMOTE_CONTAINERS_SOCKETS": "[\"/tmp/vscode-ssh-auth-a54133933e71b8733fcf7a3bad081f35330aed51.sock\",\"/tmp/.X11-unix/X1\",\"/home/developer/.gnupg/S.gpg-agent\"]",
+	"ANDROID_ARCHITECTURE": "x86_64",
+	"HOME": "/home/developer",
+	"REMOTE_CONTAINERS_IPC": "/tmp/vscode-remote-containers-ipc-a54133933e71b8733fcf7a3bad081f35330aed51.sock",
+	"ANDROID_VERSION": "33",
+	"SHLVL": "1",
+	"PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/developer/Android/cmdline-tools/latest/bin:/home/developer/flutter/bin",
+	"LESSOPEN": "| /usr/bin/lesspipe %s",
+	"_": "/bin/cat"
+}
