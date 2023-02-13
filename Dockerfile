@@ -12,13 +12,14 @@ RUN apt-get update && \
     ca-certificates \
     unzip \
     openjdk-11-jdk
-RUN useradd -ms /bin/bash developer
-USER developer
 # Prepare Android directories and system variables
 WORKDIR /home/developer/Android/cmdline-tools
 WORKDIR /home/developer/Android/sdk/.android
 RUN touch repositories.cfg
 ENV ANDROID_HOME /home/developer/Android
+# Set up user
+RUN useradd -ms /bin/bash developer
+# USER developer
 # Install SDK
 WORKDIR /home/developer
 RUN wget -O sdk-tools.zip $ANDROID_COMMANDLINETOOLS_DOWNLOAD
@@ -73,56 +74,56 @@ RUN wget -qO- $WEBSOCKIFY_DOWNLOAD | tar xvz -C websockify --strip-components 1
 # Create final build
 #======================
 FROM ubuntu:22.04 
-# ENV DEBIAN_FRONTEND noninteractive
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends \
-#     curl \
-#     wget \
-#     openjdk-11-jdk \
-#     git \
-#     libglu1-mesa \
-#     libgtk-3-dev \
-#     pkg-config \
-#     tigervnc-standalone-server \
-#     tigervnc-common \
-#     tigervnc-tools \
-#     libpulse0 \
-#     clang \
-#     cmake \
-#     ninja-build\
-#     qemu-kvm \ 
-#     libvirt-daemon-system \
-#     libvirt-clients \
-#     bridge-utils \
-#     menu \
-#     openbox
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    curl \
+    wget \
+    openjdk-11-jdk \
+    git \
+    libglu1-mesa \
+    libgtk-3-dev \
+    pkg-config \
+    tigervnc-standalone-server \
+    tigervnc-common \
+    tigervnc-tools \
+    libpulse0 \
+    clang \
+    cmake \
+    ninja-build\
+    qemu-kvm \ 
+    libvirt-daemon-system \
+    libvirt-clients \
+    bridge-utils \
+    menu \
+    openbox
 
-# # Set up user
-# RUN useradd -ms /bin/bash developer
-# # USER developer
-# WORKDIR /home/developer
+# Set up user
+RUN useradd -ms /bin/bash developer
+# USER developer
+WORKDIR /home/developer
 
-# # Android
-# COPY --from=android-sdk /home/developer/Android ./Android
-# ENV ANDROID_HOME /home/developer/Android   
-# ENV PATH "$PATH:/home/developer/Android/cmdline-tools/latest/bin"
+# Android
+COPY --from=android-sdk /home/developer/Android ./Android
+ENV ANDROID_HOME /home/developer/Android   
+ENV PATH "$PATH:/home/developer/Android/cmdline-tools/latest/bin"
 
-# # Flutter
-# COPY --from=flutter-sdk /home/developer/flutter ./flutter 
-# ENV PATH "$PATH:/home/developer/flutter/bin"  
-# RUN git config --global --add safe.directory /home/developer/flutter
-# RUN yes | flutter doctor --android-licenses
-# RUN flutter emulators --create
+# Flutter
+COPY --from=flutter-sdk /home/developer/flutter ./flutter 
+ENV PATH "$PATH:/home/developer/flutter/bin"  
+RUN git config --global --add safe.directory /home/developer/flutter
+RUN yes | flutter doctor --android-licenses
+RUN flutter emulators --create
 
-# # noVNC
-# COPY --from=novnc /home/developer/noVNC ./noVNC 
-# ENV DISPLAY=:0 \
-#     SCREEN=0 \
-#     SCREEN_WIDTH=1600 \
-#     SCREEN_HEIGHT=900 \
-#     SCREEN_DEPTH=16 \
-#     VNC_PORT=5901 \
-#     NOVNC_PORT=6080 \
-#     TIMEOUT=1
+# noVNC
+COPY --from=novnc /home/developer/noVNC ./noVNC 
+ENV DISPLAY=:0 \
+    SCREEN=0 \
+    SCREEN_WIDTH=1600 \
+    SCREEN_HEIGHT=900 \
+    SCREEN_DEPTH=16 \
+    VNC_PORT=5901 \
+    NOVNC_PORT=6080 \
+    TIMEOUT=1
 
 CMD [ "flutter", "doctor" ] 

@@ -1,20 +1,18 @@
 {
-	"name": "flutter container",
-	"dockerComposeFile": [
-		"../docker-compose.yml"
-		// "docker-compose.yml"
-	],
-	"service": "app",
-	"workspaceFolder": "/home/developer/app",
-	// "customizations": {
-	// 	"vscode": {
-	// 		"extensions": [
-	// 			"Dart-Code.flutter",
-	// 			"Dart-Code.dart-code"
-	// 		]
-	// 	}
-	// },
-	// "remoteEnv": {
-	// 	"DISPLAY": ":1"
-	// }
+	"name": "Existing Dockerfile",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Dart-Code.flutter",
+				"Dart-Code.dart-code"
+			]
+		}
+	},
+	"forwardPorts": [
+		6080
+	]
 }
