@@ -5,14 +5,13 @@ services:
     image: app
     build:
       context: ./app
-   
-    volumes:
-      - ./app:/home/developer/app # Drop all our code from ./app into container's home/developer/app directory  
-    ports:
-      - 4723:4723
-      - 6080:6080
-      - 5901:5901
-    environment:
-      - DISPLAY=:1 # share the Host’s DISPLAY environment variable to the container
+    # volumes:
+    #   - ./app:/home/developer/app # Drop all our code from ./app into container's home/developer/app directory  
+    # ports:
+    #   - 4723:4723
+    #   - 6080:6080
+    #   - 5901:5901
+    # environment:
+    #   - DISPLAY=:1 # share the Host’s DISPLAY environment variable to the container
     working_dir: /home/developer/app
-    privileged: true
+    # privileged: true
