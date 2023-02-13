@@ -6,15 +6,15 @@
 	],
 	"service": "app",
 	"workspaceFolder": "/home/developer/app",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"Dart-Code.flutter",
-				"Dart-Code.dart-code"
-			]
-		}
-	},
-	"remoteEnv": {
-		"DISPLAY": ":1"
-	}
+	// "customizations": {
+	// 	"vscode": {
+	// 		"extensions": [
+	// 			"Dart-Code.flutter",
+	// 			"Dart-Code.dart-code"
+	// 		]
+	// 	}
+	// },
+	// "remoteEnv": {
+	// 	"DISPLAY": ":1"
+	// }
 }
