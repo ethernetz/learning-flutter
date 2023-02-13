@@ -5,12 +5,14 @@ services:
     image: app
     build:
       context: ./app
+   
     volumes:
-      - ./app:/home/developer/app # Drop all our code from ./app into container's home/developer/app directory 
-      -  /tmp/.X11-unix:/tmp/.X11-unix # Needed to display GUI from container's device emulator to host machine
-    devices:
-      - /dev/dri:/dev/dri # Graphics
-      - /dev/kvm # CPU acceleration
+      - ./app:/home/developer/app # Drop all our code from ./app into container's home/developer/app directory  
+    ports:
+      - 4723:4723
+      - 6080:6080
+      - 5901:5901
     environment:
-      - DISPLAY=:0 # share the Host’s DISPLAY environment variable to the container
+      - DISPLAY=:1 # share the Host’s DISPLAY environment variable to the container
     working_dir: /home/developer/app
+    privileged: true
