@@ -14,5 +14,6 @@
 	},
 	"forwardPorts": [
 		6080
-	]
+	],
+	"runArgs": ["--privileged"]
 }
