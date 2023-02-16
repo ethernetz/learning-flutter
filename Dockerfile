@@ -1,1 +1,1 @@
-FROM ethernetz/docker-flutter
+FROM ethernetz/docker-flutter:latest
