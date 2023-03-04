@@ -19,7 +19,7 @@ jobs:
     - run: flutter pub get
       working-directory: ./app
     # - run: flutter test
-    - run: flutter build app/ios --release --no-codesign
+    - run: flutter build ios --release --no-codesign
       working-directory: ./app
 
     - name: Decode signing certificate into a file
