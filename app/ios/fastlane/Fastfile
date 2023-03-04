@@ -9,7 +9,6 @@ lane :load_asc_api_key do
      is_key_content_base64: true,
      in_house: false # detecting this via ASC private key not currently supported
    )
- end
 end
 
 desc "Bump build number based on most recent TestFlight build number"
