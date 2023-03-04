@@ -17,10 +17,10 @@ jobs:
         architecture: x64
 
     - run: flutter pub get
-      working-directory: /app
+      working-directory: ./app
     # - run: flutter test
     - run: flutter build app/ios --release --no-codesign
-      working-directory: /app
+      working-directory: ./app
 
     - name: Decode signing certificate into a file
       env:
