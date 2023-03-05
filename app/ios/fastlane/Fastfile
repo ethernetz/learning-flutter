@@ -62,7 +62,6 @@ lane :prepare_signing do |options|
    sigh(
      adhoc: options[:adhoc],
      api_key: api_key,
-     readonly: true
    )
  end
 
