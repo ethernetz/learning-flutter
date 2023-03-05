@@ -65,7 +65,6 @@ lane :prepare_signing do |options|
 
   update_project_provisioning(
     xcodeproj: "Runner.xcodeproj",
-    # profile: "com.ethannetz.learningflutter.#{options[:id]}.mobileprovision",
     build_configuration: "Release",
     code_signing_identity: "iPhone Distribution"
   )
@@ -84,9 +83,8 @@ lane :build_release do |options|
 
   update_code_signing_settings(
    use_automatic_signing: false,
-   code_sign_identity: "Apple Distribution", # replace with name of code signing identity if different
+   code_sign_identity: "Apple Distribution",
    bundle_identifier: ENV["DEVELOPER_APP_IDENTIFIER"],
-   #  build_configurations: ["Release"] # only toggle code signing settings for Release configurations
   )
   gym(
     workspace: "Runner.xcworkspace",
