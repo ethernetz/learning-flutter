@@ -71,7 +71,7 @@ desc "Build the iOS app for release"
 lane :build_release do |options|
   gym(
     workspace: "Runner.xcworkspace",
-    scheme: "MyApp",
+    scheme: "Runner",
     export_method: "app-store"
   )
 end
