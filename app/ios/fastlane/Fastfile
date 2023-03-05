@@ -67,6 +67,8 @@ lane :prepare_signing do |options|
     path: "Runner.xcodeproj",
     teamid: ENV["TEAM_ID"]
   )
+
+  enable_automatic_code_signing
  end
 
 
