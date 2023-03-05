@@ -73,6 +73,9 @@ lane :build_release do |options|
     workspace: "Runner.xcworkspace",
     scheme: "Runner",
     export_method: "app-store"
+    provisioningProfiles: {
+      app_identifier => "com.ethannetz.learningflutter AppStore" # here you can add any additional bundle identifiers and their associated provisioning profiles if you’re also building an app extension or other bundle identifier
+    }
   )
 end
 
