@@ -62,6 +62,11 @@ lane :prepare_signing do |options|
      adhoc: options[:adhoc],
      api_key: api_key,
    )
+
+  update_project_team(
+    path: "Runner.xcodeproj",
+    teamid: ENV["TEAM_ID"]
+  )
  end
 
 
