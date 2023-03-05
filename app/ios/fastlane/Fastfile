@@ -18,7 +18,7 @@ lane :fetch_and_increment_build_number do
  api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
 
  current_version = get_version_number()
- 
+
  latest_build_number = latest_testflight_build_number(
    api_key: api_key,
    version: current_version,
@@ -83,15 +83,9 @@ lane :build_release do |options|
 
  # build the app 
  gym(
-    configuration: "Release",
     workspace: "Runner.xcworkspace",
     scheme: "Runner",
     export_method: "app-store",
-    export_options: {
-      provisioningProfiles: { 
-          ENV["DEVELOPER_APP_ID"] => ENV["PROVISIONING_PROFILE_SPECIFIER"]
-      }
-    }
   )
 end
 
