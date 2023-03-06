@@ -31,10 +31,10 @@ class _MyAppState extends State<MyApp> {
       QuestionType(
         question: "Whats your favorite color?",
         answers: [
-          '1',
-          '2',
-          '3',
-          '4',
+          'Red',
+          'Blue',
+          'Green',
+          'Yellow',
         ],
         answerIndex: 1,
       ),

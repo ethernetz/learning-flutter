@@ -1,19 +1,10 @@
 {
-	"name": "Existing Dockerfile",
-	"build": {
-		"context": "..",
-		"dockerfile": "../Dockerfile"
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"Dart-Code.flutter",
-				"Dart-Code.dart-code"
-			]
-		}
-	},
-	"forwardPorts": [
-		6080
-	],
-	"runArgs": ["--privileged"]
+  "image": "ethernetz/docker-flutter:latest",
+  "customizations": {
+    "vscode": {
+      "extensions": ["Dart-Code.flutter", "Dart-Code.dart-code"]
+    }
+  },
+  "forwardPorts": [6080],
+  "runArgs": ["--privileged"]
 }
